@@ -1,0 +1,9 @@
+production: &production
+  adapter: postgresql
+  encoding: unicode
+  database: ruby_sample
+  pool: 5
+  username: postgres
+  password: 
+development:
+  <<: *production
