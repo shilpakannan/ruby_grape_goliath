@@ -7,7 +7,8 @@ module API
   def self.create(post)    
     post = Post.new(post.to_h)
      if post.valid?
-      post.save
+      post.save    
+     
       return { 
         :data => post, 
         :status=>201,

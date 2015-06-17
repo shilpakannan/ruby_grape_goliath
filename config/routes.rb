@@ -1,7 +1,5 @@
-require 'require_all'
-require_all './app/models'
-require_all './app/apis'
-
+Dir["./app/models/*.rb"].each {|file| require file }
+Dir["./app/apis/*.rb"].each {|file| require file }
 
 class Routes < Grape::API
   version 'v1', :using => :path

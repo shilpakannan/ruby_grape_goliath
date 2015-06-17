@@ -1,4 +1,6 @@
+require 'mail'
 module API
+
   class Users < Grape::API
    def self.index
     User.all
@@ -8,6 +10,26 @@ module API
     user = User.new(user.to_h)
      if user.valid?
       user.save
+      Mail.defaults do
+
+  delivery_method :smtp, { 
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "gmail.com",  
+  :user_name            => "shilpa92.kannan@gmail.com",
+  :password             => "shilpakannan27",
+  :authentication       => "plain",
+  :enable_starttls_auto => true }
+
+end
+mail = Mail.deliver do
+  to      'shilpa.k@optisolbusiness.com'
+  from    'shilpa92.kannan@gmail.com'
+  subject 'ruby POC'
+  body    'Welcome to ruby'
+  
+end
+     
       return { 
         :data => user, 
         :status=>201,

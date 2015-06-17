@@ -12,6 +12,7 @@ gem 'em-synchrony', :git => 'git://github.com/igrigorik/em-synchrony.git',
 gem 'grape'
 gem 'goliath'
 gem 'bcrypt'
-gem 'require_all'
 gem 'grape-scaffold'
+gem 'mail', '~> 2.6.3'
+
 
